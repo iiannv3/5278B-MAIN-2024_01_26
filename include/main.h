@@ -42,7 +42,7 @@
 // #include "okapi/api.hpp"
 // #include "pros/api_legacy.h"
 #include "EZ-Template/api.hpp"
-
+#include "5278B/robot_config.hpp"
 // More includes here...
 #include "autons.hpp"
 
