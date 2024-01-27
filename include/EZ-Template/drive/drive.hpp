@@ -522,7 +522,7 @@ class Drive {
    * \param speed
    *        0 to 127, max speed during motion
    */
-  void set_swing_pid(e_swing type, double target, int speed);
+  void set_sflap_pid(e_swing type, double target, int speed);
 
   /**
    * Resets all PID targets to 0.
@@ -571,7 +571,7 @@ class Drive {
    * \param min
    *        new clipped speed
    */
-  void set_swing_min(int min);
+  void set_sflap_min(int min);
 
   /**
    * The minimum power for turns when kI and startI are enabled.
@@ -584,7 +584,7 @@ class Drive {
   /**
    * Returns minimum power for swings when kI and startI are enabled.
    */
-  int get_swing_min();
+  int get_sflap_min();
 
   /**
    * Returns minimum power for turns when kI and startI are enabled.
@@ -615,7 +615,7 @@ class Drive {
    * Set's constants for exit conditions.
    *
    * \param &type
-   *        turn_exit, swing_exit, or drive_exit
+   *        turn_exit, sflap_exit, or drive_exit
    * \param p_small_exit_time
    *        Sets small_exit_time.  Timer for to exit within smalL_error.
    * \param p_small_error
@@ -637,7 +637,7 @@ class Drive {
   /**
    * Exit condition for swinging.
    */
-  const int swing_exit = 2;
+  const int sflap_exit = 2;
 
   /**
    * Exit condition for driving.
@@ -702,7 +702,7 @@ class Drive {
  private:  // !Auton
   bool drive_toggle = true;
   bool print_toggle = true;
-  int swing_min = 0;
+  int sflap_min = 0;
   int turn_min = 0;
 
   /**
@@ -735,7 +735,7 @@ class Drive {
    * Tasks
    */
   void drive_pid_task();
-  void swing_pid_task();
+  void sflap_pid_task();
   void turn_pid_task();
   void ez_auto_task();
 

@@ -41,6 +41,8 @@
  */
 // #include "okapi/api.hpp"
 // #include "pros/api_legacy.h"
+#include "5278B/op_control.hpp"
+#include "5278B/robot_config.hpp"
 #include "EZ-Template/api.hpp"
 
 // More includes here...
