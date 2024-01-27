@@ -12,7 +12,7 @@ const int DRIVE_SPEED = 110; // This is 110/127 (around 87% of max speed).  We d
                              // making one side slower.  When this is 87%, it's correcting by making one side
                              // faster and one side slower, giving better heading correction.
 const int TURN_SPEED  = 90;
-const int SWING_SPEED = 90;
+const int Sflap_SPEED = 90;
 
 
 
@@ -56,7 +56,7 @@ void two_mogo_constants() {
 
 void modified_exit_condition() {
   chassis.set_exit_condition(chassis.turn_exit, 100, 3, 500, 7, 500, 500);
-  chassis.set_exit_condition(chassis.swing_exit, 100, 3, 500, 7, 500, 500);
+  chassis.set_exit_condition(chassis.sflap_exit, 100, 3, 500, 7, 500, 500);
   chassis.set_exit_condition(chassis.drive_exit, 80, 50, 300, 150, 500, 500);
 }
 
@@ -161,19 +161,19 @@ void wait_until_change_speed() {
 ///
 // Swing Example
 ///
-void swing_example() {
+void sflap_example() {
   // The first parameter is ez::LEFT_SWING or ez::RIGHT_SWING
   // The second parameter is target degrees
   // The third parameter is speed of the moving side of the drive
 
 
-  chassis.set_swing_pid(ez::LEFT_SWING, 45, SWING_SPEED);
+  chassis.set_sflap_pid(ez::LEFT_SWING, 45, Sflap_SPEED);
   chassis.wait_drive();
 
   chassis.set_drive_pid(24, DRIVE_SPEED, true);
   chassis.wait_until(12);
 
-  chassis.set_swing_pid(ez::RIGHT_SWING, 0, SWING_SPEED);
+  chassis.set_sflap_pid(ez::RIGHT_SWING, 0, Sflap_SPEED);
   chassis.wait_drive();
 }
 
@@ -189,7 +189,7 @@ void combining_movements() {
   chassis.set_turn_pid(45, TURN_SPEED);
   chassis.wait_drive();
 
-  chassis.set_swing_pid(ez::RIGHT_SWING, -45, TURN_SPEED);
+  chassis.set_sflap_pid(ez::RIGHT_SWING, -45, TURN_SPEED);
   chassis.wait_drive();
 
   chassis.set_turn_pid(0, TURN_SPEED);

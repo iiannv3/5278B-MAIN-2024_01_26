@@ -89,7 +89,7 @@ void initialize() {
             drive_and_turn),
       Auton("Drive and Turn\n\nSlow down during drive.",
             wait_until_change_speed),
-      Auton("Swing Example\n\nSwing, drive, swing.", swing_example),
+      Auton("Swing Example\n\nSwing, drive, swing.", sflap_example),
       Auton("Combine all 3 movements", combining_movements),
       Auton("Interference\n\nAfter driving forward, robot performs differently "
             "if interfered or not.",
@@ -160,7 +160,7 @@ void autonomous() {
  */
 void opcontrol() {
   pros::Task intake_control_task(intake_control);
-  pros::Task wing_control_task(wing_control);
+  pros::Task flap_control_task(flap_control);
   pros::Task slapper_control_task(slapper_control);
   // This is preference to what you like to drive on.
   chassis.set_drive_brake(MOTOR_BRAKE_COAST);
