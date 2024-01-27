@@ -243,4 +243,22 @@ void interfered_example() {
 
 // . . .
 // Make your own autonomous functions here!
+void skills(){
+
+}
+void far_wp(){
+
+}
+void near_wp(){
+
+}
+void near_elim(){
+
+}
+void far_elim(){
+  
+}
+
+
+
 // . . .
