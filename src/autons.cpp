@@ -121,4 +121,8 @@ void wait_until_change_speed() {
   chassis.wait_drive();
 }
 
-void auton_1() {}
+void skills() {}
+void far_wp() {}
+void near_wp() {}
+void far_elims() {}
+void near_elims() {}

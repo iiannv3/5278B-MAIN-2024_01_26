@@ -1,5 +1,6 @@
 #include "main.h"
 #include "5278B/op_control.hpp"
+#include "EZ-Template/auton.hpp"
 #include "autons.hpp"
 #include "pros/rtos.hpp"
 
@@ -64,13 +65,10 @@ void initialize() {
   chassis.set_curve_default(5, 5);
   default_constants();
   ez::as::auton_selector.add_autons(
-      {Auton("Auton 1", auton_1),
-       Auton("Example Drive\n\nDrive forward and come back.", drive_example),
-       Auton("Example Turn\n\nTurn 3 times.", turn_example),
-       Auton("Drive and Turn\n\nDrive forward, turn, come back. ",
-             drive_and_turn),
-       Auton("Drive and Turn\n\nSlow down during drive.",
-             wait_until_change_speed)});
+      {Auton("Skills", skills), Auton("Far Win Point", far_wp),
+       Auton("Near Win Point", near_wp),
+       Auton("Far Win Point - ELIMS", far_elims),
+       Auton("Near Win Point- ELIMS", near_elims)});
   chassis.initialize();
   ez::as::initialize();
 }

@@ -11,4 +11,8 @@ void wait_until_change_speed();
 
 void default_constants();
 
-void auton_1();
+void skills();
+void far_wp();
+void near_wp();
+void far_elims();
+void near_elims();
