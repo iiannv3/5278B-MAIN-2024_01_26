@@ -44,6 +44,7 @@
 #include "5278B/op_control.hpp"
 #include "5278B/robot_config.hpp"
 #include "EZ-Template/api.hpp"
+#include "5278B/auton_control.hpp"
 
 // More includes here...
 #include "autons.hpp"

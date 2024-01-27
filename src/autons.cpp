@@ -1,3 +1,4 @@
+#include "5278B/auton_control.hpp"
 #include "main.h"
 
 /////
@@ -121,8 +122,106 @@ void wait_until_change_speed() {
   chassis.wait_drive();
 }
 
-void skills() {}
-void far_wp() {}
-void near_wp() {}
-void far_elims() {}
+void skills() {
+  intake_in(127);
+  slapper_start();
+  pros::delay(34000);
+  slapper_stop();
+  chassis.set_turn_pid(30, TURN_SPEED);
+  chassis.wait_drive();
+  chassis.set_drive_pid(90, DRIVE_SPEED, true);
+  chassis.wait_drive();
+  horizontal_flap_B_active();
+  chassis.set_turn_pid(-45, TURN_SPEED);
+  chassis.wait_drive();
+  chassis.set_drive_pid(24, DRIVE_SPEED, true);
+  chassis.wait_drive();
+  chassis.set_turn_pid(-45, TURN_SPEED);
+  chassis.wait_drive();
+  chassis.set_drive_pid(24, DRIVE_SPEED, true);
+  chassis.wait_drive();
+  all_wings_de_active();
+  chassis.set_drive_pid(-12, DRIVE_SPEED, true);
+  chassis.wait_drive();
+  chassis.set_turn_pid(-90, TURN_SPEED);
+  chassis.wait_drive();
+  chassis.set_drive_pid(48, DRIVE_SPEED, true);
+  chassis.wait_drive();
+  chassis.set_turn_pid(90, TURN_SPEED);
+  chassis.wait_drive();
+  chassis.set_drive_pid(36, DRIVE_SPEED, true);
+  chassis.wait_drive();
+  chassis.set_turn_pid(90, TURN_SPEED);
+  horizontal_flap_A_active();
+  horizontal_flap_B_active();
+  chassis.set_drive_pid(48, TURN_SPEED);
+  chassis.wait_drive();
+  chassis.set_drive_pid(-48, DRIVE_SPEED, true);
+}
+void far_wp() {
+  intake_in(127);
+  chassis.set_drive_pid(48, DRIVE_SPEED, true);
+  chassis.wait_drive();
+  chassis.set_turn_pid(90, TURN_SPEED);
+  intake_out(127);
+  intake_stop();
+  chassis.wait_drive();
+  chassis.set_turn_pid(180, TURN_SPEED);
+  chassis.wait_drive();
+  intake_in(127);
+  chassis.set_drive_pid(8, DRIVE_SPEED, true);
+  intake_stop();
+  chassis.wait_drive();
+  chassis.set_turn_pid(180, TURN_SPEED);
+  chassis.wait_drive();
+  intake_out(127);
+  horizontal_flap_A_active();
+  horizontal_flap_B_active();
+  chassis.set_drive_pid(32, DRIVE_SPEED, true);
+  chassis.wait_drive();
+  chassis.set_drive_pid(-12, DRIVE_SPEED, true);
+  chassis.wait_drive();
+  chassis.set_turn_pid(90, TURN_SPEED);
+  chassis.set_drive_pid(36, DRIVE_SPEED, true);
+  chassis.wait_drive();
+  chassis.set_turn_pid(90, TURN_SPEED);
+  chassis.set_drive_pid(36, DRIVE_SPEED, true);
+}
+void near_wp() {
+  chassis.set_drive_pid(48, DRIVE_SPEED, true);
+  chassis.wait_drive();
+  chassis.set_turn_pid(-90, TURN_SPEED);
+  intake_out(127);
+  intake_stop();
+  chassis.wait_drive();
+  chassis.set_turn_pid(180, TURN_SPEED);
+  chassis.wait_drive();
+  chassis.set_drive_pid(-12, DRIVE_SPEED, true);
+  chassis.wait_drive();
+  chassis.set_drive_pid(12, DRIVE_SPEED, true);
+  chassis.wait_drive();
+  chassis.set_turn_pid(90, TURN_SPEED);
+  chassis.wait_drive();
+  chassis.set_drive_pid(36, DRIVE_SPEED, true);
+  chassis.wait_drive();
+  chassis.set_turn_pid(90, TURN_SPEED);
+  chassis.wait_drive();
+  chassis.set_drive_pid(24, DRIVE_SPEED, true);
+  chassis.wait_drive();
+  chassis.set_turn_pid(-90, TURN_SPEED);
+  chassis.wait_drive();
+  chassis.set_drive_pid(8, DRIVE_SPEED, true);
+  chassis.wait_drive();
+  chassis.set_turn_pid(-45, TURN_SPEED);
+  chassis.wait_drive();
+  chassis.set_drive_pid(7, DRIVE_SPEED, true);
+  chassis.wait_drive();
+  chassis.set_turn_pid(-45, TURN_SPEED);
+  chassis.wait_drive();
+  chassis.set_drive_pid(48, DRIVE_SPEED, true);
+  chassis.wait_drive();
+}
+void far_elims() {
+  
+}
 void near_elims() {}
