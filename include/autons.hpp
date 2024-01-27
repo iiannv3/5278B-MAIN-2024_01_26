@@ -10,3 +10,5 @@ void drive_and_turn();
 void wait_until_change_speed();
 
 void default_constants();
+
+void auton_1();
